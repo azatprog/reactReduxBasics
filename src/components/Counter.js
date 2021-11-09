@@ -5,8 +5,8 @@ import { counterActions } from '../store/index.js';
 
 const Counter = () => {
     const dispatch = useDispatch();
-    const counter = useSelector(state => state.counter);
-    const showCounter = useSelector(state => state.showCounter);
+    const counter = useSelector(state => state.counter.counter);
+    const showCounter = useSelector(state => state.counter.showCounter);
 
     const toggleCounterHandler = () => {
         dispatch(counterActions.toggle());
@@ -27,15 +27,15 @@ const Counter = () => {
 
     return (
         <main className={classes.counter}>
-        <h1>Redux Counter</h1>
-        {showCounter && <div className={classes.value}>{counter}</div>}
-        <div>
-            <button onClick={incrementHandler}> Increment </button>
-            <button onClick={decrementHandler}> Decrement </button>
-            <button onClick={increaseHandler}> Increase </button>
-        </div>
+            <h1>Redux Counter</h1>
+            {showCounter && <div className={classes.value}>{counter}</div>}
+            <div>
+                <button onClick={incrementHandler}> Increment </button>
+                <button onClick={decrementHandler}> Decrement </button>
+                <button onClick={increaseHandler}> Increase </button>
+            </div>
 
-        <button onClick={toggleCounterHandler}>Toggle Counter</button>
+            <button onClick={toggleCounterHandler}>Toggle Counter</button>
         </main>
     );
 };
